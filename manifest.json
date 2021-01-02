@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "New tab speeddial v3",
+  "short_name": "NTSpeed3",
+  "description": "Personal new tab page v3",
+  "version": "1.0.0",
+  "chrome_url_overrides": {
+  	"newtab": "index.html"
+  },
+  "permissions": [
+  	"tabs",
+  	"topSites"
+  ],
+  "web_accessible_resources": [
+    "index.html"
+  ]
+}
