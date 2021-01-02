@@ -1,0 +1,22 @@
+{
+	"name": "startpage",
+	"version": "1.0.0",
+	"description": "static new tab for firefox",
+	"license": "MIT",
+	"repository": "github.com/rubenleikarnes/startpage-v3",
+	"author": {
+		"name": "Ruben"
+	},
+	"devDependencies": {
+		"browser-sync": "^2.26.13",
+		"sass": "^1.30.0",
+		"web-ext": "^5.4.1"
+	},
+	"scripts": {
+		"browsersync": "browser-sync start --server --files 'index.html'",
+		"sass:watch": "sass --watch style.scss style.css",
+		"sass:build": "sass --style=compressed style.scss style.css ",
+		"serve": "npm-run-all -p browsersync sass:watch",
+		"build": "web-ext build"
+	}
+}
