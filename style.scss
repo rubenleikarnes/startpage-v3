@@ -1,0 +1,92 @@
+$black: #282828;
+$grey: #2a2a2e;
+$white: #fff;
+$width: 960px;
+
+html {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	background: $grey;
+	font-family:-apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, "Segoe UI", Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
+	width: $width;
+	margin: 20vh auto auto;
+	display: grid;
+	
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-column-gap: 1rem;
+	grid-row-gap: 1.5rem;
+	font-size: 18px;
+}
+
+a {
+	position: relative;
+    display: grid;
+	justify-content: center;
+	align-content: center;
+	height: 100px;
+	border-radius: 4px;
+	border: 1px solid rgba(12, 12, 13, 0.5);
+	text-decoration: none;
+	font-weight: bold;
+	
+	-webkit-text-decoration-skip: ink;
+	text-decoration-skip: ink;
+	text-decoration-skip-ink: auto;
+
+	&:hover {
+		box-shadow: 0 0 0 5px #4A4A4F;
+		transition: box-shadow 150ms;
+		border-radius: 4px;
+		outline: none;
+	}
+}
+
+$webpages: (
+	confluence: #003366,
+	dockercloud: #1fbaef,
+	dvbook: #fff,
+	fastmail: #243959,
+	gitea: #54943c,
+	hltv: #2d6ca2,
+	hn: #ff6600,
+	jira: #0052CC,
+	liquipedia: #9ebb81,
+	lobsters: #fc0d1b,
+	mediabank: #ff0f6c,
+	nrk: #1fbaef,
+	rbnett: #1b71ae,
+	reddit: #cee3f8,
+	theverge: #e2127A,
+	twitch: #6441a5,
+	youtube: #f00
+);
+
+@function contrast-color($bg-color, $dark-color:$black, $light-color:$white, $threshold:70) {
+	@if (lightness($bg-color) > $threshold) {
+		@return $dark-color;
+	}
+	@else {
+		@return $light-color;
+	}
+}
+
+@each $page, $color in $webpages {
+	.#{$page} {
+		background-color: $color;
+		color: contrast-color($color);
+	}
+}
