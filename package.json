@@ -1,6 +1,6 @@
 {
 	"name": "startpage",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "static new tab for firefox",
 	"license": "MIT",
 	"repository": "github.com/rubenleikarnes/startpage-v3",
